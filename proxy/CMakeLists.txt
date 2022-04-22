@@ -1,0 +1,1 @@
+add_executable(test-proxy test.cpp)

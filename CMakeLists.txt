@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(swo-design-patterns VERSION 0.0.1)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CXX_CLANG_TIDY clang-tidy)
+
+add_compile_options(-Wall -Wextra -Werror -pedantic -g -O0)
+
+include_directories(prototype/figures)
+
+add_subdirectory(prototype/figures)
+add_subdirectory(prototype/copy)
+add_subdirectory(composite)
+add_subdirectory(adapter)
+add_subdirectory(proxy)
+add_subdirectory(observer)
+add_subdirectory(decorator)
