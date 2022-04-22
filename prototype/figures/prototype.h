@@ -1,7 +1,5 @@
 #pragma once
 
-// #include <iostream>
-
 // abstract Figure class
 class Figure {
   public:
