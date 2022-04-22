@@ -5,7 +5,7 @@
 // Abstract observer
 // Observer or View or Slot
 class Observer {
-   public:
+  public:
     virtual void update() = 0;
     virtual ~Observer() {}
 };
@@ -13,7 +13,7 @@ class Observer {
 // Abstract target of observation
 // Subject or Model or Signal
 class Subject {
-   public:
+  public:
     void add(Observer* o) { obs_.push_back(o); }
 
     void notify() {  // call o->update() on every observer
@@ -23,6 +23,6 @@ class Subject {
     }
     virtual ~Subject(){};
 
-   private:
+  private:
     std::vector<Observer*> obs_;
 };

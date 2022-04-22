@@ -4,17 +4,17 @@
 #include <memory>
 
 class Foo {
-   public:
+  public:
     Foo(int v) : val_(v) { std::cout << "Foo constructor" << std::endl; }
     int get() const { return val_; }
     void set(int v) { val_ = v; }
 
-   private:
+  private:
     int val_;
 };
 
 class LazyFoo {
-   public:
+  public:
     LazyFoo(int i) : ptr_(new Foo(i)) {}
     LazyFoo(const LazyFoo &l) : ptr_(l.ptr_) {}
     int get() const { return ptr_->get(); }
@@ -26,7 +26,7 @@ class LazyFoo {
         }
     }
 
-   private:
+  private:
     typedef std::shared_ptr<Foo> PFoo;
     PFoo ptr_;
 };

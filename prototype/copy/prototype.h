@@ -1,19 +1,19 @@
 #pragma once
 
 class Base {
-   public:
+  public:
     Base(int val) : value(val){};
     virtual Base* clone() const = 0;  // Creates copy of the object
     Base(const Base&) = delete;       // Copy constructor not allowed
 
     int value;
 
-   protected:
+  protected:
     Base() {}
 };
 
 class Derived1 : public Base {
-   public:
+  public:
     Derived1() : Base(1) {}
     Derived1(const Derived1& r) : Base() {  // Copy constructor
         this->value = r.value;
@@ -24,7 +24,7 @@ class Derived1 : public Base {
 };
 
 class Derived2 : public Base {
-   public:
+  public:
     Derived2() : Base(2) {}
     Derived2(const Derived2& r) : Base() {  // Copy constructor
         this->value = r.value;

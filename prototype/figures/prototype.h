@@ -4,7 +4,7 @@
 
 // abstract Figure class
 class Figure {
-   public:
+  public:
     // virtual constructor
     virtual Figure* clone() = 0;
     // draws figure
@@ -14,24 +14,24 @@ class Figure {
 };
 
 class Rectangle : public Figure {
-   public:
+  public:
     Rectangle(int a, int b) : a_(a), b_(b) {}
 
     virtual Figure* clone();
     virtual void draw();
 
-   private:
+  private:
     int a_;
     int b_;
 };
 
 class Circle : public Figure {
-   public:
+  public:
     Circle(int r) : r_(r) {}
 
     virtual Figure* clone();
     virtual void draw();
 
-   private:
+  private:
     int r_;  // radius
 };

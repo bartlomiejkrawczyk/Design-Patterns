@@ -5,7 +5,7 @@
 #include "observer.h"
 
 class Clock : public Subject {
-   public:
+  public:
     Clock() : h(23), m(1) {}
     int min() const { return m; }
     int hour() const { return h; }
@@ -16,14 +16,14 @@ class Clock : public Subject {
         notify();
     }
 
-   private:
+  private:
     int h;
     int m;
 };
 
 // concrete observer
 class Alarm : public Observer {
-   public:
+  public:
     Alarm(Clock &c, std::ostream &os, int h, int m)
         : clk_(c), os_(os), h_(h), m_(m) {
         clk_.add(this);
@@ -35,7 +35,7 @@ class Alarm : public Observer {
             os_ << "Alarm - " << h_ << ":" << m_ << std::endl;
     }
 
-   private:
+  private:
     Clock &clk_;
     std::ostream &os_;
     int h_;
@@ -43,14 +43,14 @@ class Alarm : public Observer {
 };
 
 class Display : public Observer {
-   public:
+  public:
     Display(Clock &c, std::ostream &os) : clk_(c), os_(os) { clk_.add(this); }
 
     virtual void update() {
         os_ << clk_.hour() << ":" << clk_.min() << std::endl;
     }
 
-   private:
+  private:
     Clock &clk_;
     std::ostream &os_;
 };

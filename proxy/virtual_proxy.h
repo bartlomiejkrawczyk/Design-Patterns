@@ -3,24 +3,24 @@
 #include <iostream>
 
 class Interface {
-   public:
+  public:
     virtual void operation() = 0;
 };
 
 // "Heavy" class, realizes the functionality
 class RealObject : public Interface {
-   public:
+  public:
     virtual void operation() { std::cout << "RealObject" << std::endl; }
 };
 
 // "Light" class - handle
 // Creates the object on first use
 class VirtualProxy : public Interface {
-   public:
+  public:
     VirtualProxy() : real_(nullptr) {}
     virtual void operation() { getReal()->operation(); }  // mediates
 
-   private:
+  private:
     RealObject* real_;  // handle
     RealObject* getReal() {
         if (!real_) real_ = new RealObject;

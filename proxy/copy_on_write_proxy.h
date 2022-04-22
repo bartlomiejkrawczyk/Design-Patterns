@@ -1,7 +1,7 @@
 #pragma once
 
 class ObjectInterface {
-   public:
+  public:
     virtual int get() const = 0;
     virtual void set(int val) = 0;
     virtual ~ObjectInterface() {}
@@ -10,12 +10,12 @@ class ObjectInterface {
 class CopyOnWriteProxy;
 
 class Object : public ObjectInterface {
-   public:
+  public:
     Object(int val) : value_(val), count_(1) {}
     virtual int get() const { return value_; }
     virtual void set(int val) { value_ = val; }
 
-   private:
+  private:
     int value_;
     int count_;
     friend class CopyOnWriteProxy;
@@ -23,7 +23,7 @@ class Object : public ObjectInterface {
 
 // Lazy copy for class Object, Object containst counter
 class CopyOnWriteProxy : public ObjectInterface {
-   public:
+  public:
     CopyOnWriteProxy(int val) : obj_(new Object(val)) {}
 
     CopyOnWriteProxy(const CopyOnWriteProxy& c) { join(c.obj_); }
@@ -39,7 +39,7 @@ class CopyOnWriteProxy : public ObjectInterface {
         }
     }
 
-   private:
+  private:
     void join(Object* o) {
         obj_ = o;
         ++obj_->count_;

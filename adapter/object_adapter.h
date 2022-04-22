@@ -1,19 +1,19 @@
 #pragma once
 
 class ObjectInterface {
-   public:
+  public:
     virtual int method_1() = 0;
 };
 
 class ObjectAdaptee {
-   public:
+  public:
     int method1() { return 1; }
 };
 
 class ObjectAdapter : public ObjectInterface {
-   public:
+  public:
     virtual int method_1() { return obj_.method1(); }
 
-   private:
+  private:
     ObjectAdaptee obj_;
 };
