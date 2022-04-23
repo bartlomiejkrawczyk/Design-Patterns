@@ -1,0 +1,1 @@
+add_executable(test-command test.cpp)
