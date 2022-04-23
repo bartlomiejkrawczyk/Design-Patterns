@@ -1,0 +1,1 @@
+add_executable(test-bridge test.cpp)
