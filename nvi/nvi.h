@@ -1,4 +1,4 @@
-/*  plik demonstruje wzorzec NVI (non virtual interface) */
+/*  file demonstrates NVI pattern (non virtual interface) */
 #include <deque>
 #include <iostream>
 #include <stack>
@@ -6,12 +6,11 @@
 using Number = double;
 using Stack = std::stack<Number>;
 
-// operacja dla kalkulatora w odwrotnej notacji polskiej
 class Operation2Arg {
   public:
     Operation2Arg(Stack &st) : stack_(st) {}
 
-    // interfejs, kod wspolny
+    // interface, mutual code
     void calculate() {
         Number a = stack_.top();
         stack_.pop();
@@ -21,17 +20,17 @@ class Operation2Arg {
     };
 
   private:
-    // implementacja, funkcja wirtualna, NVI
+    // implementation, virtual function, NVI
     virtual Number doCalculate(Number, Number) = 0;
     Stack &stack_;
 };
 
-// dodawanie
+// addition
 class OperationAdd : public Operation2Arg {
   public:
     OperationAdd(Stack &st) : Operation2Arg(st) {}
 
   private:
-    // specyficzna operacja, dodawanie
+    // specific operation, addition
     virtual Number doCalculate(Number a, Number b) { return a + b; }
 };
